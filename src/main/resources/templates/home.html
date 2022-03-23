@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+	<head th:replace="~{base :: head('Home')}"></head>
+	<body>
+		<div th:replace="~{base :: principal()}"></div>
+		<div sec:authorize="isAuthenticated()" th:replace="~{base :: header('home')}"></div>
+		<div class="container">
+			
+			<div sec:authorize="!isAuthenticated()" class="alert alert-primary mt-3 mb-3" role="alert">
+				<span>Login to access more resources!</span>
+			</div>
+			
+			<div class="row justify-content-evenly">
+				<div th:each="image : ${images}" class="card mb-3" style="width: 18rem;">
+					<img th:src="${image.url}" class="card-img-top image-container mt-3">
+					<div class="card-body">
+						<h5 th:text="${image.title}" class="card-title">Title of image</h5>
+						<h6 th:text="${image.author}"class="card-subtitle mb-3">Author</h6>
+						<div class="row">
+							<form sec:authorize="isAuthenticated()" class="col-5" th:action="@{/home/favorite}" method="post">
+								<input th:value="${image.id}" field="id" name="id" type="hidden">
+								<button type="submit" class="btn btn-warning">Favorite</button>
+							</form>
+							<form class="col-5" th:action="@{/home/view}" method="post">
+								<input th:value="${image.id}" field="id" name="id" type="hidden">
+								<button type="submit" class="btn btn-primary">View</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	</body>
+</html>

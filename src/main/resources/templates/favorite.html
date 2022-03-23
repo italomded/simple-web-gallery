@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br">
+	<head th:replace="~{base :: head('Favorites')}"></head>
+	<body>
+		<div th:replace="~{base :: principal()}"></div>
+		<div th:replace="~{base :: header('favorite')}"></div>
+		<div class="container">
+		
+			<div class="row justify-content-evenly">
+				<div th:each="image : ${images}" class="card mb-3" style="width: 18rem;">
+					<img th:src="${image.url}" class="card-img-top image-container mt-3">
+					<div class="card-body">
+						<h5 th:text="${image.title}" class="card-title">Title of image</h5>
+						<h6 th:text="${image.author}"class="card-subtitle mb-3">Author</h6>
+						<div class="row">
+							<form class="col-5" th:action="@{/favorite/remove}" method="post">
+								<input th:value="${image.id}" field="id" name="id" type="hidden">
+								<button type="submit" class="btn btn-danger">Remove</button>
+							</form>
+							<form class="col-5" th:action="@{/home/view}" method="post">
+								<input th:value="${image.id}" field="id" name="id" type="hidden">
+								<button type="submit" class="btn btn-primary">View</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	</body>
+</html>
