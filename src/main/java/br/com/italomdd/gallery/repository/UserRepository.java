@@ -13,6 +13,8 @@ import br.com.italomdd.gallery.model.User;
 public interface UserRepository extends JpaRepository<User, String> {
 
 	@Query("SELECT u.favoriteImages FROM User u WHERE u.username = ?1")
-	public List<Image> findByUsername(String username);
+	public List<Image> getFavoriteImages(String username);
+	
+	public User findByUsername(String username);
 	
 }

@@ -1,25 +1,36 @@
 <!doctype html>
 <html lang="pt-br">
-	<head th:replace="~{base :: head('My uploads')}"></head>
+	<head th:replace="~{base :: head('Favorites')}"></head>
 	<body>
 		<div th:replace="~{base :: principal()}"></div>
-		<div th:replace="~{base :: header('personal')}"></div>
+		<div th:replace="~{base :: header('favorite')}"></div>
 		<div class="container">
 		
 			<div class="row justify-content-evenly">
+			
 				<div th:each="image : ${images}" class="card mb-3" style="width: 18rem;">
-					<img th:src="${image.url}" class="card-img-top image-container mt-3">
+				
+					<img th:src="${image.urlImage}" class="card-img-top image-container mt-3">
 					<div class="card-body">
+					
 						<h5 th:text="${image.title}" class="card-title">Title of image</h5>
 						<h6 th:text="${image.author}"class="card-subtitle mb-3">Author</h6>
+						
 						<div class="row">
-							<form class="col-5" th:action="@{/home/view}" method="post">
+							<form class="col-5" th:action="@{/unlike}" method="post">
+								<input th:value="${image.id}" field="id" name="id" type="hidden">
+								<button type="submit" class="btn btn-danger">Unlike</button>
+							</form>
+							<form class="col-5" th:action="@{/view}" method="post">
 								<input th:value="${image.id}" field="id" name="id" type="hidden">
 								<button type="submit" class="btn btn-primary">View</button>
 							</form>
 						</div>
+						
 					</div>
+					
 				</div>
+				
 			</div>
 		
 		</div>

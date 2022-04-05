@@ -53,9 +53,9 @@ public class ImageDTO {
 	public Image toImage() {
 		Image image = new Image();
 		image.setAuthor(this.author);
-		image.setFont(this.font);
+		image.setUrlFont(this.font);
 		image.setTitle(this.title);
-		image.setUrl(this.url);
+		image.setUrlImage(this.url);
 		return image;
 	}
 	

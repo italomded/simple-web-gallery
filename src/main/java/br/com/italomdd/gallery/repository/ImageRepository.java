@@ -1,6 +1,7 @@
 package br.com.italomdd.gallery.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,5 +16,8 @@ public interface ImageRepository extends JpaRepository<Image, Long> {
 	
 	@Query("SELECT i FROM Image i JOIN i.user")
 	public List<Image> findWithAll();
+	
+	@Query("SELECT i FROM Image i WHERE i.id = ?1 AND i.user.username != ?2")
+	public Optional<Image> findByIdAndUserUsername(Long id, String username);
 	
 }

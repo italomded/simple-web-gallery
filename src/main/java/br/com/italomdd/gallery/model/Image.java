@@ -1,15 +1,10 @@
 package br.com.italomdd.gallery.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,16 +18,13 @@ public class Image {
 
 	private String title;
 	private String author;
-	private String url;
-	private String font;
+	private String urlImage;
+	private String urlFont;
 	private Integer views;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "favoriteImages")
-	private List<User> usersFavorited = new ArrayList<User>();
-	
 	public Long getId() {
 		return id;
 	}
@@ -57,20 +49,20 @@ public class Image {
 		this.author = author;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getUrlImage() {
+		return urlImage;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
 	}
 
-	public String getFont() {
-		return font;
+	public String getUrlFont() {
+		return urlFont;
 	}
 
-	public void setFont(String font) {
-		this.font = font;
+	public void setUrlFont(String urlFont) {
+		this.urlFont = urlFont;
 	}
 
 	public Integer getViews() {
@@ -88,13 +80,5 @@ public class Image {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	public List<User> getUsersFavorited() {
-		return usersFavorited;
-	}
-
-	public void setUsersFavorited(List<User> usersFavorited) {
-		this.usersFavorited = usersFavorited;
-	}
-
+	
 }
