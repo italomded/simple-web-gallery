@@ -1,10 +1,10 @@
-package br.com.italomdd.fimg;
+package br.com.italomdd.gallery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FimgApplicationTests {
+class GalleryApplicationTests {
 
 	@Test
 	void contextLoads() {
