@@ -36,7 +36,7 @@ public class SubmitController {
 	public String save(@Valid ImageForm imageForm, BindingResult result, Principal principal) {
 		
 		if (result.hasErrors()) {
-			return "image/submit";
+			return "forms/submitForm";
 		}
 		
 		String username = principal.getName();
