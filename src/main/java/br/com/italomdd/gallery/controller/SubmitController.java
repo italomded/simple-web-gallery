@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.italomdd.gallery.dto.ImageDTO;
+import br.com.italomdd.gallery.dto.ImageForm;
 import br.com.italomdd.gallery.model.Image;
 import br.com.italomdd.gallery.model.User;
 import br.com.italomdd.gallery.repository.ImageRepository;
@@ -28,19 +28,20 @@ public class SubmitController {
 	private UserRepository userRepository;
 
 	@GetMapping
-	public String submit(ImageDTO imageDTO) {
+	public String submit(ImageForm imageForm) {
 		return "forms/submitForm";
 	}
 	
 	@PostMapping
-	public String save(@Valid ImageDTO imageDTO, BindingResult result, Principal principal) {
+	public String save(@Valid ImageForm imageForm, BindingResult result, Principal principal) {
+		
 		if (result.hasErrors()) {
 			return "image/submit";
 		}
 		
 		String username = principal.getName();
 		User user = userRepository.getById(username);
-		Image image = imageDTO.toImage();
+		Image image = imageForm.toImage();
 		
 		image.setUser(user);
 		user.getImages().add(image);

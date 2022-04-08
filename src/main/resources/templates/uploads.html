@@ -8,17 +8,47 @@
 		
 			<div class="row justify-content-evenly">
 			
+				<div class="col-auto card mb-3" style="width: 18rem;">
+					<div class="card-img-top image-container mt-3 p-3"></div>
+					
+					<div class="card-body">
+						<h5 class="card-title" aria-hidden="true">
+							<span class="placeholder col-6 bg-secondary"></span>
+						</h5>
+						<h6 class="card-subtitle mb-3" aria-hidden="true">
+							<span class="placeholder col-6 bg-secondary"></span>
+						</h6>
+						<a th:href="@{/submit}" type="button" class="btn btn-primary">Submit</a>
+					</div>
+				</div>
+				
+				<div class="col-md-6 col-sm-12 alert alert-primary" role="alert">
+					<h4 class="alert-heading">Submit an image!</h4>
+					<p>By clicking on the "submit" button on the card to the side, you will be taken to a form for submitting an image.</p>
+					<hr>
+					<p class="mb-0">The images are temporarily stored, because the DBMS used is H2!</p>
+				</div>
+				
+			</div>
+			
+			<hr>
+
+			<div class="row justify-content-evenly">
+
 				<div th:each="image : ${images}" class="card mb-3" style="width: 18rem;">
 				
-					<img th:src="${image.urlImage}" class="card-img-top image-container mt-3">
+					<img th:src="${image.url}" class="card-img-top image-container mt-3">
 					
 					<div class="card-body">
 						<h5 th:text="${image.title}" class="card-title">Title of image</h5>
 						<h6 th:text="${image.author}"class="card-subtitle mb-3">Author</h6>
 						<div class="row">
-							<form class="col-5" th:action="@{/view}" method="post">
+							<form class="col-auto" th:action="@{/view}" method="post">
 								<input th:value="${image.id}" field="id" name="id" type="hidden">
-								<button type="submit" class="btn btn-primary">View</button>
+								<button type="submit" class="btn btn-primary">
+									View&nbsp
+									<span th:text="${image.views}" class="badge bg-light text-dark">New</span>
+								</button>
 							</form>
 						</div>
 					</div>

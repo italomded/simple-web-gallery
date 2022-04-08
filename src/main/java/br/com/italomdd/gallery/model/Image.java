@@ -20,7 +20,7 @@ public class Image {
 	private String author;
 	private String urlImage;
 	private String urlFont;
-	private Integer views;
+	private Long views = 0L;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
@@ -65,11 +65,11 @@ public class Image {
 		this.urlFont = urlFont;
 	}
 
-	public Integer getViews() {
+	public Long getViews() {
 		return views;
 	}
 
-	public void setViews(Integer views) {
+	public void setViews(Long views) {
 		this.views = views;
 	}
 

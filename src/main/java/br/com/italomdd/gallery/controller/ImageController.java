@@ -78,11 +78,7 @@ public class ImageController {
 		}
 		
 		Image image = imageSearched.get();
-		if (image.getViews() == null) {
-			image.setViews(1);
-		} else {
-			image.setViews(image.getViews() + 1);
-		}
+		image.setViews(image.getViews() + 1);
 		
 		imageRepository.save(image);
 		

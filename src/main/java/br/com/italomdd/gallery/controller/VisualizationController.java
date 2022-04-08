@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.italomdd.gallery.dto.ImageDTO;
 import br.com.italomdd.gallery.model.Image;
 import br.com.italomdd.gallery.repository.ImageRepository;
 import br.com.italomdd.gallery.repository.UserRepository;
@@ -29,21 +30,21 @@ public class VisualizationController {
 		if (principal != null) {
 			images.removeIf(img -> img.getUser().getUsername().equals(principal.getName()));
 		}
-		model.addAttribute("images", images);
+		model.addAttribute("images", new ImageDTO().converter(images));
 		return "home";
 	}
 	
 	@GetMapping("likeds")
 	public String list(Model model, Principal principal) {
 		List<Image> images = userRepository.getFavoriteImages(principal.getName());
-		model.addAttribute("images", images);
+		model.addAttribute("images", new ImageDTO().converter(images));
 		return "likeds";
 	}
 	
 	@GetMapping("uploads")
 	public String personal(Model model, Principal principal) {
 		List<Image> images = imageRepository.findByUserUsername(principal.getName());
-		model.addAttribute("images", images);
+		model.addAttribute("images", new ImageDTO().converter(images));
 		return "uploads";
 	}
 	
