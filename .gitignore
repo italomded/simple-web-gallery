@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Chrome Web Driver ###
+/drivers/chromedriver.exe
