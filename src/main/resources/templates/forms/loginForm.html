@@ -9,11 +9,11 @@
 	
 		<div class="col-5 card mb-3 mt-3">
 			<div class="card-body">
-				<form th:action="@{/login}" method="post">
+				<form id="loginForm" th:action="@{/login}" method="post">
 					<label for="username">Username</label>
-					<input class="form-control mb-3" field="username" name="username" type="text">
+					<input id="username" class="form-control mb-3" field="username" name="username" type="text">
 					<label for="password">Password</label>
-					<input class="form-control mb-3" field="password" name="password" type="password">
+					<input id="password" class="form-control mb-3" field="password" name="password" type="password">
 					<button type="submit" class="btn btn-primary">Login</button>
 				</form>
 			</div>

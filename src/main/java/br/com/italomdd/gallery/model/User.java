@@ -30,7 +30,7 @@ public class User implements UserDetails {
 	@ManyToMany(fetch = FetchType.LAZY)
 	private List<Image> favoriteImages = new ArrayList<Image>();
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	List<Profiles> profiles = new ArrayList<>();
 
 	public String getUsername() {

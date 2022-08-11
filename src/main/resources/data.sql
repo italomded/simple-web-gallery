@@ -1,5 +1,5 @@
-INSERT INTO USERS(username, password) VALUES('italomdd', '$2a$10$pU6iuYtgIag2VDhvOeDFwutw3UGiV.cTTjmCKaYIlyKYA.COlLse.');
-INSERT INTO USERS(username, password) VALUES('jeff', '$2a$10$pU6iuYtgIag2VDhvOeDFwutw3UGiV.cTTjmCKaYIlyKYA.COlLse.');
+INSERT INTO USERS(username, password) VALUES('italomdd', '$2a$10$cnZrq2HMH9yCib94ElZiIOx33NMn8ZmVDL3321vA4y.HByy6ykhdq');
+INSERT INTO USERS(username, password) VALUES('jeff', '$2a$10$cnZrq2HMH9yCib94ElZiIOx33NMn8ZmVDL3321vA4y.HByy6ykhdq');
 
 INSERT INTO IMAGES(author, title, url_font, url_image, user_username, views) VALUES('stepbro', 'Anime Eyes', 'https://wallhaven.cc/w/pkgkkp', 'https://w.wallhaven.cc/full/pk/wallhaven-pkgkkp.png', 'italomdd', 11);
 INSERT INTO IMAGES(author, title, url_font, url_image, user_username, views) VALUES('byrotek', 'Montain', 'https://wallhaven.cc/w/z8dg9y', 'https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png', 'italomdd', 12);

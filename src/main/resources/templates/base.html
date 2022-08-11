@@ -16,9 +16,9 @@
 
 <div th:fragment="principal()" class="bg-primary p-4 row justify-content-between">
 	<span class="col-1 fs-4 text-light ">Gallery</span>
-	<a sec:authorize="!isAuthenticated()" class="col-3 btn btn-outline-light" th:href="@{/login}">Login</a>
+	<a id="login" sec:authorize="!isAuthenticated()" class="col-3 btn btn-outline-light" th:href="@{/login}">Login</a>
 	<form sec:authorize="isAuthenticated()" th:action="@{/logout}" class="col-3">
-		<button class="col-12 btn btn-outline-light" type="submit">Logout</button>
+		<button id="logout" class="col-12 btn btn-outline-light" type="submit">Logout</button>
 	</form>
 </div>
 
