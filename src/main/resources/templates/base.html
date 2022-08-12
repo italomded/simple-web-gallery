@@ -28,7 +28,7 @@
 			<div class="navbar-nav">
 				<a th:classappend="${active} == 'home' ? active" class="nav-link" th:href="@{/home}">Home</a>
 				<a th:classappend="${active} == 'favorite' ? active" class="nav-link" th:href="@{/likeds}">Likeds</a>
-				<a th:classappend="${active} == 'personal' ? active" class="nav-link" th:href="@{/uploads}">My uploads</a>
+				<a id= "uploads" th:classappend="${active} == 'personal' ? active" class="nav-link" th:href="@{/uploads}">My uploads</a>
 			</div>
 		</div>
 	</nav>

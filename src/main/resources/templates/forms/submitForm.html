@@ -17,7 +17,7 @@
 
 		<div class="col-6 card mb-3">
 			<div class="card-body">
-				<form th:object=${imageForm} th:action="@{/submit}" method="post">
+				<form id="form" th:object=${imageForm} th:action="@{/submit}" method="post">
 					
 					<div class="mb-3">
 						<label for="*{author}">Author</label>
