@@ -1,4 +1,4 @@
-package br.com.italomdd.gallery.acceptance;
+package br.com.italomdd.gallery.e2e;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -12,10 +12,10 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
-import br.com.italomdd.gallery.acceptance.pages.HomePage;
-import br.com.italomdd.gallery.acceptance.pages.LoginPage;
-import br.com.italomdd.gallery.acceptance.pages.UploadFormPage;
-import br.com.italomdd.gallery.acceptance.pages.UploadPage;
+import br.com.italomdd.gallery.e2e.pages.HomePage;
+import br.com.italomdd.gallery.e2e.pages.LoginPage;
+import br.com.italomdd.gallery.e2e.pages.UploadFormPage;
+import br.com.italomdd.gallery.e2e.pages.UploadPage;
 
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)

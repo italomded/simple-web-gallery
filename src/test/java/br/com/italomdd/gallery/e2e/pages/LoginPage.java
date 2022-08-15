@@ -1,4 +1,4 @@
-package br.com.italomdd.gallery.acceptance.pages;
+package br.com.italomdd.gallery.e2e.pages;
 
 
 
