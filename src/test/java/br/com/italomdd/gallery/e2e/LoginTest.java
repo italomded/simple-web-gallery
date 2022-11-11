@@ -19,15 +19,12 @@ import br.com.italomdd.gallery.e2e.pages.LoginPage;
 @DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @Sql(executionPhase = ExecutionPhase.BEFORE_TEST_METHOD, scripts = "file:src/test/resources/data.sql")
 public class LoginTest {
-    
-
     private LoginPage loginPage;
 
     @BeforeEach
     public void BeforeEach() {
         loginPage = new LoginPage();
     }
-
     @AfterEach
     public void afterEach() {
         loginPage.closePage();
@@ -40,7 +37,6 @@ public class LoginTest {
         assertFalse(loginPage.isExpectedPage());
         assertTrue(loginPage.containsElementId("logout"));
     }
-
     @Test
     public void shouldNotLoginWithInvalidCredentials() {
         loginPage.fulfillLoginForm("lorem", "ipsum");
@@ -49,7 +45,6 @@ public class LoginTest {
         assertTrue(loginPage.containsElementId("login"));
         assertFalse(loginPage.containsElementId("logout"));
     }
-
     @Test
     public void shouldNotAccessThePageWithoutValidCredentials() {
         loginPage.fulfillLoginForm("italomdd", "12345");

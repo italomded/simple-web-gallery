@@ -9,7 +9,6 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Entity(name="profiles")
 public class Profiles implements GrantedAuthority {
-
 	private static final long serialVersionUID = 1L;
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -24,5 +23,4 @@ public class Profiles implements GrantedAuthority {
 	public Long getId() {
 		return this.id;
 	}
-
 }

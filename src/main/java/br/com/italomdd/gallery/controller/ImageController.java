@@ -16,10 +16,8 @@ import br.com.italomdd.gallery.repository.UserRepository;
 @Controller
 @RequestMapping
 public class ImageController {
-
 	@Autowired
 	private UserRepository userRepository;
-	
 	@Autowired
 	private ImageRepository imageRepository;
 	
@@ -84,5 +82,4 @@ public class ImageController {
 		
 		return "redirect:" + image.getUrlFont();
 	}
-	
 }

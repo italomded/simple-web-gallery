@@ -19,5 +19,4 @@ public class HomePage extends PageObject {
     protected String getExpectedPageUrl() {
         return PAGE_URL;
     }
-
 }

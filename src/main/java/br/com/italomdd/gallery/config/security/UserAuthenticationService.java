@@ -10,7 +10,6 @@ import br.com.italomdd.gallery.repository.UserRepository;
 
 @Service
 public class UserAuthenticationService implements UserDetailsService {
-
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -22,5 +21,4 @@ public class UserAuthenticationService implements UserDetailsService {
 		}
 		return user;
 	}
-
 }

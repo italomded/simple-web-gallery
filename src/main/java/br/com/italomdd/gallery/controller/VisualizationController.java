@@ -17,18 +17,18 @@ import br.com.italomdd.gallery.repository.UserRepository;
 @Controller
 @RequestMapping
 public class VisualizationController {
-
 	@Autowired
 	private ImageRepository imageRepository;
-	
 	@Autowired
 	private UserRepository userRepository;
 	
 	@GetMapping("home")
 	public String home(Model model, Principal principal) {
-		List<Image> images = imageRepository.findWithAll();
+		List<Image> images;
 		if (principal != null) {
-			images.removeIf(img -> img.getUser().getUsername().equals(principal.getName()));
+			images = imageRepository.findAllImagesExceptUser(principal.getName());
+		} else {
+			images = imageRepository.findWithAll();
 		}
 		model.addAttribute("images", new ImageDTO().converter(images));
 		return "home";
@@ -47,5 +47,4 @@ public class VisualizationController {
 		model.addAttribute("images", new ImageDTO().converter(images));
 		return "uploads";
 	}
-	
 }

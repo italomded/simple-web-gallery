@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import br.com.italomdd.gallery.model.Image;
 
 public class ImageDTO {
-
 	private Long id;
 	private String author;
 	private String title;
@@ -28,23 +27,12 @@ public class ImageDTO {
 	public Long getId() {
 		return id;
 	}
-
-	public String getAuthor() {
-		return author;
-	}
-
+	public String getAuthor() { return author; }
 	public String getTitle() {
 		return title;
 	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public Long getViews() {
-		return views;
-	}
-
+	public String getUrl() { return url; }
+	public Long getViews() { return views; }
 	public String getUser() {
 		return user;
 	}
@@ -52,5 +40,4 @@ public class ImageDTO {
 	public List<ImageDTO> converter(List<Image> listImages) {
 		return listImages.stream().map(img -> new ImageDTO(img)).collect(Collectors.toList());
 	}
-	
 }

@@ -20,10 +20,8 @@ import br.com.italomdd.gallery.repository.UserRepository;
 @Controller
 @RequestMapping("submit")
 public class SubmitController {
-	
 	@Autowired
 	private ImageRepository imageRepository;
-	
 	@Autowired
 	private UserRepository userRepository;
 
@@ -34,7 +32,6 @@ public class SubmitController {
 	
 	@PostMapping
 	public String save(@Valid ImageForm imageForm, BindingResult result, Principal principal) {
-		
 		if (result.hasErrors()) {
 			return "forms/submitForm";
 		}
@@ -50,5 +47,4 @@ public class SubmitController {
 		
 		return "redirect:/home";
 	}
-	
 }

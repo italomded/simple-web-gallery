@@ -31,7 +31,6 @@ public class UploadTest {
         UploadPage uploadPage = homePage.goToUploadPage();
         this.uploadFormPage = uploadPage.goToUploadFormPage();
     }
-
     @AfterEach
     public void afterEach() {
         uploadFormPage.closePage();
@@ -45,12 +44,10 @@ public class UploadTest {
         UploadPage uploadPage = homePage.goToUploadPage();
         assertTrue(uploadPage.haveThisImage(formData, formData));
     }
-
     @Test
     public void shouldNotRegisterImageWithBlankFields() {
         uploadFormPage.fulfillUploadForm("", "", "", "");
         assertTrue(uploadFormPage.isExpectedPage());
         assertTrue(uploadFormPage.haveFormErrors());
     }
-
 }

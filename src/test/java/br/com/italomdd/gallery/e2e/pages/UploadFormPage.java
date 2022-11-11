@@ -43,5 +43,4 @@ public class UploadFormPage extends PageObject {
     protected String getExpectedPageUrl() {
         return PAGE_URL;
     }
-
 }
